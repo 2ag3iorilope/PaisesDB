@@ -27,12 +27,12 @@ public class SQLite {
 		try {
 			switch (databaseType.toLowerCase()) {
 			case "sqlite":
-				databaseUrl = "jdbc:sqlite:C:/Users/2ag3.iorilope/paises.db";
+				databaseUrl = "jdbc:sqlite:./DatuBaseak/paises.db";
 				connection = DriverManager.getConnection(databaseUrl);
 				System.out.println("SQLite konexioa ondo egin da.");
 				break;
 			case "access":
-				databaseUrl = "jdbc:ucanaccess://C:/Users/2ag3.iorilope/Desktop/paises.accdb";
+				databaseUrl = "jdbc:ucanaccess://./DatuBaseak/paises.accdb";
 				connection = DriverManager.getConnection(databaseUrl);
 				System.out.println("Access konexioa ondo egin da.");
 				break;
