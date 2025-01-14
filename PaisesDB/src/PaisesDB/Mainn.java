@@ -2,8 +2,17 @@ package PaisesDB;
 
 import java.util.Scanner;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Mainn.
+ */
 public class Mainn {
 
+    /**
+     * The main method.
+     *
+     * @param args the arguments
+     */
     public static void main(String[] args) {
         SQLite dbManager = new SQLite(); 
         Scanner scanner = new Scanner(System.in);
@@ -41,6 +50,12 @@ public class Mainn {
         scanner.close();
     }
 
+    /**
+     * Manage SQ lite menu.
+     *
+     * @param dbManager , gure Datubase Klasea
+     * @param scanner the scanner
+     */
     private static void manageSQLiteMenu(SQLite dbManager, Scanner scanner) {
         int choice;
         dbManager.openConnection("sqlite");
@@ -61,7 +76,7 @@ public class Mainn {
                     dbManager.clearTables();
                     break;
                 case 3:
-                    dbManager.selectData();
+                    dbManager.selectDatasqlite();
                     break;
                 case 4:
                     System.out.println("Atzera menura bueltatzen...");
@@ -72,6 +87,12 @@ public class Mainn {
         } while (choice != 4);
     }
 
+    /**
+     * Manage access menu.
+     *
+     * @param dbManager,gure Datubase Klasea
+     * @param scanner the scanner
+     */
     private static void manageAccessMenu(SQLite dbManager,Scanner scanner) {
     
         int choice;
@@ -98,7 +119,7 @@ public class Mainn {
                   
                     break;
                 case 3:
-                	 dbManager.selectData();
+                	 dbManager.selectDatasqlite();
                     System.out.println("Access: Taulak erakusten...");
                    
                     break;
@@ -112,8 +133,15 @@ public class Mainn {
         } while (choice != 4);
     }
 
+    /**
+     * Manage SQL server menu.
+     *
+     * @param dbManager,gure Datubase Klasea
+     * @param scanner the scanner
+     */
     private static void manageSQLServerMenu(SQLite dbManager,Scanner scanner) {
         int choice;
+        dbManager.openConnection("sqlserver");
         do {
             System.out.println("\n--- SQL Server MENU ---");
             System.out.println("1. Taulak bete datuekin");
@@ -125,15 +153,15 @@ public class Mainn {
 
             switch (choice) {
                 case 1:
-                    System.out.println("SQL Server: Taulak datuekin betetzen...");
+                	 dbManager.populateTables();
                   
                     break;
                 case 2:
-                    System.out.println("SQL Server: Taulak garbitzen...");
+                	 dbManager.clearTables();
                     
                     break;
                 case 3:
-                    System.out.println("SQL Server: Taulak erakusten...");
+                	 dbManager.selectDatasqlite();
                 
                     break;
                 case 4:
